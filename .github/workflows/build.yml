@@ -119,8 +119,9 @@ jobs:
         git clone ${{ secrets.PATCH_REPO }}
         export ANDROID_NDK_ROOT=${{ steps.setup-ndk.outputs.ndk-path }}
         git clone --recurse-submodules https://github.com/frida/frida
-        cd frida/frida-core
+        cd frida
         git checkout 50761f1596e794ed005ca4bdde0bb0de7c48409e
+        cd frida-core
         git am ../../StrongFridaPatches/strongR-frida/frida-core/*.patch
         cd ../
         make core-android-arm
